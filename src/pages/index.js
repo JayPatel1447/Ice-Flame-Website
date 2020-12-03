@@ -2,7 +2,6 @@ import React from "react"
 // import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import Hero from "../components/Hero"
 import Flavours from "../components/Flavours"
 import Testimonials from "../components/Testimonials"
@@ -16,7 +15,7 @@ import RollIceCream from "../components/RollIceCream"
 const IndexPage = () => (
   <>
   <Layout>
-    <SEO title="Home" />
+    
    <Hero />
     <Flavours headings="Tawa Roll Ice Creams " path="/flavors" />
 
