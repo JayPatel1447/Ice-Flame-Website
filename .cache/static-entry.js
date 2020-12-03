@@ -17,9 +17,8 @@ const {
 
 const { RouteAnnouncerProps } = require(`./route-announcer-props`)
 const apiRunner = require(`./api-runner-ssr`)
-const syncRequires = require(`$virtual/sync-requires`)
+const syncRequires = require(`./sync-requires`)
 const { version: gatsbyVersion } = require(`gatsby/package.json`)
-const { grabMatchParams } = require(`./find-path`)
 
 const stats = JSON.parse(
   fs.readFileSync(`${process.cwd()}/public/webpack.stats.json`, `utf-8`)
@@ -61,9 +60,6 @@ const getPageDataUrl = pagePath => {
   const pageDataPath = getPageDataPath(pagePath)
   return `${__PATH_PREFIX__}/${pageDataPath}`
 }
-
-const getStaticQueryUrl = hash =>
-  `${__PATH_PREFIX__}/page-data/sq/d/${hash}.json`
 
 const getPageData = pagePath => {
   const pageDataPath = getPageDataPath(pagePath)
@@ -205,19 +201,13 @@ export default (pagePath, callback) => {
 
   const appDataUrl = getAppDataUrl()
 
-  const { componentChunkName, staticQueryHashes = [] } = pageData
-
-  const staticQueryUrls = staticQueryHashes.map(getStaticQueryUrl)
+  const { componentChunkName } = pageData
 
   class RouteHandler extends React.Component {
     render() {
       const props = {
         ...this.props,
         ...pageData.result,
-        params: {
-          ...grabMatchParams(this.props.location.pathname),
-          ...(pageData.result?.pageContext?.__params || {}),
-        },
         // pathContext was deprecated in v2. Renamed to pageContext
         pathContext: pageData.result ? pageData.result.pageContext : undefined,
       }
@@ -371,18 +361,6 @@ export default (pagePath, callback) => {
       />
     )
   }
-  staticQueryUrls.forEach(staticQueryUrl =>
-    headComponents.push(
-      <link
-        as="fetch"
-        rel="preload"
-        key={staticQueryUrl}
-        href={staticQueryUrl}
-        crossOrigin="anonymous"
-      />
-    )
-  )
-
   if (appDataUrl) {
     headComponents.push(
       <link
@@ -454,29 +432,17 @@ export default (pagePath, callback) => {
     />
   )
 
-  let bodyScripts = []
-  if (chunkMapping[`polyfill`]) {
-    chunkMapping[`polyfill`].forEach(script => {
-      const scriptPath = `${__PATH_PREFIX__}${script}`
-      bodyScripts.push(
-        <script key={scriptPath} src={scriptPath} noModule={true} />
-      )
-    })
-  }
-
   // Filter out prefetched bundles as adding them as a script tag
   // would force high priority fetching.
-  bodyScripts = bodyScripts.concat(
-    scripts
-      .filter(s => s.rel !== `prefetch`)
-      .map(s => {
-        const scriptPath = `${__PATH_PREFIX__}/${JSON.stringify(s.name).slice(
-          1,
-          -1
-        )}`
-        return <script key={scriptPath} src={scriptPath} async />
-      })
-  )
+  const bodyScripts = scripts
+    .filter(s => s.rel !== `prefetch`)
+    .map(s => {
+      const scriptPath = `${__PATH_PREFIX__}/${JSON.stringify(s.name).slice(
+        1,
+        -1
+      )}`
+      return <script key={scriptPath} src={scriptPath} async />
+    })
 
   postBodyComponents.push(...bodyScripts)
 

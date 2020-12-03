@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -9,8 +9,8 @@ import Testimonials from "../components/Testimonials"
 import Stats from "../components/Stats"
 import LiveVideo from "../components/LiveVideo"
 import RollIceCream from "../components/RollIceCream"
-import Contact from "../components/Contact"
-import { Router, Switch, Route } from "react-router-dom";
+// import Contact from "../components/Contact"
+// import { Router, Switch, Route } from "react-router-dom";
 
 
 const IndexPage = () => (

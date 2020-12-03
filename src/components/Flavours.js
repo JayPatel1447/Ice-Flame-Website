@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import {useStaticQuery, graphql} from "gatsby"
 import Img from 'gatsby-image'
 import {ImLocation} from "react-icons/im"
-import { Fade } from "react-reveal";
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import IceFlameMenu from "../assets/images/IceFlame.pdf";
 import Button from "./styles/Button.js"
@@ -75,9 +74,9 @@ const Flavours = ({headings}) => {
               
             <ProductContainer>
                 <ProductHeading>{headings}</ProductHeading>
-                <Fade left duration={1300}>
+               
                     <ProductWrapper>{getFlavour(data)}</ProductWrapper>
-                      </Fade>
+                    
 
                       <NavBtn>
                  <DownloadLink src={IceFlameMenu} style={{fontSize: '26px'}} primary="true" round="true" to="/contact"> 
