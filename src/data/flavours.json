@@ -1,0 +1,23 @@
+[
+    {
+        "img":"../assets/images/Icecream.jpg",
+        "alt": "STRAWBERRY BLAST",
+        "name": "STRAWBERRY BLAST"
+    },
+    {
+        "img":"../assets/images/Icecream2.jpg",
+        "alt": "CHOCOLATE PAAN",
+        "name": "CHOCOLATE PAAN"
+    },
+    {
+        "img":"../assets/images/Icecream3.jpg",
+        "alt": "CHOCO SHAKE",
+        "name": "CHOCO SHAKE"
+    },
+    {
+        "img":"../assets/images/Icecream4.jpg",
+        "alt": "FIRE PAAN",
+        "name": "FIRE PAAN"
+    }
+
+]

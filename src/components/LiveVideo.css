@@ -1,0 +1,47 @@
+:root{
+    --width: 180%;
+}
+
+.player-wrapper{
+    position: relative;
+    padding-top: 100%;
+}
+.react-player{
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+}
+@media screen and (max-width: 768px){
+    .player-wrapper{
+        height: 50%;
+    }
+}
+
+.btnMenu{
+    background-color:#F26A2E ;
+    white-space: nowrap;
+    padding: '16px 40px';
+    color: #fff;
+    font-size: '20px';
+    outline : none;
+    min-width: 100px;
+    cursor : pointer;
+    text-decoration : none;
+    transition: 0.3 !important;
+    border-radius: '50px';
+}
+
+.btnMenu :hover{
+    background-color: '#077BF1';
+    transform: translateY(-1px);
+}
+
+
+
+@media screen and (max-width: 468px){
+    .RolledImage{
+        width: var(--width) ;
+       
+    }
+}
