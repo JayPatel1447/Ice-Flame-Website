@@ -12,7 +12,7 @@ export class DownloadLink extends React.Component {
     render() {
         return (
             <form method="get" action={this.props.src}>
-                <button style={{background: '#F26A2E', whiteSpace: 'nowrap', padding: '16px', color: '#fff', fontSize: '20px', outline: 'nonde', minWidth: '100px', cursor: 'pointer', textDecoration: 'none', transition: '0.3 !important', borderRadius: '20px'}}  type="submit">{this.props.children}</button>
+                <button style={{background: '#F26A2E', whiteSpace: 'nowrap', padding: '16px', color: '#fff', fontSize: '20px', outline: 'nonde', cursor: 'pointer', textDecoration: 'none', transition: '0.3 !important', borderRadius: '20px'}}  type="submit">{this.props.children}</button>
             </form>
         )
     }
@@ -183,7 +183,5 @@ const NavBtn = styled.div`
   justify-content: center;
 
  
-  @media screen and (max-width: 768px){
-    display : none;
-  }
+  
 `
