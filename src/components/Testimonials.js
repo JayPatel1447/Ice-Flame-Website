@@ -37,7 +37,7 @@ const Testimonials = () => {
             <Description>
                 What People are Saying
             </Description>
-            <Fade right duration={1300}>
+            {/* <Fade right duration={1300}> */}
             <ContentWrapper>
                 <ColumnOne>
                     <Testimonial>
@@ -76,7 +76,7 @@ const Testimonials = () => {
                      ) )}
                 </ColumnTwo>
             </ContentWrapper>
-            </Fade>
+            {/* </Fade> */}
         </TestomonialsContainer>
       
     )

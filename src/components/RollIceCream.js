@@ -10,12 +10,12 @@ import "./LiveVideo.css"
 const RollIceCream = () => {
     return (
         <RollContainer>
-            <Fade left duration={1300}>
+         
             <ColumnLeftSide>
             <img className="RolledImage" src={RollingImage} style={{width: '80%'}} />
             </ColumnLeftSide>
-            </Fade>
-            <Fade right duration={1300}>
+          
+            
             <ColumnRightSide>
             <HowRollWork>
                    
@@ -29,7 +29,7 @@ const RollIceCream = () => {
              </HowRollWork>
              
             </ColumnRightSide>
-            </Fade>
+            
         </RollContainer>
     )
 }

@@ -9,8 +9,6 @@ import styled from "styled-components"
 const LiveVideo = () => {
     return (
         
-
-
         <ControllerClass>
             <Columnleft>
             <AboutUs>
