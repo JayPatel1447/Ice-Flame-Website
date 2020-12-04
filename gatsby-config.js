@@ -12,7 +12,7 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/assets/images`,
-        pathPrefix: '/gatsby-portfolio-site',
+        pathPrefix: '/Ice-Flame-Website',
       },
     },
     {
@@ -20,6 +20,7 @@ module.exports = {
       options: {
         name: `video`,
         path: `${__dirname}/src/assets/videos`,
+        pathPrefix: '/Ice-Flame-Website',
       },
     },
 
